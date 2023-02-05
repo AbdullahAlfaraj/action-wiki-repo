@@ -28,4 +28,5 @@ jobs:
           ACTION_NAME: AbdullahAlfaraj
           OWNER: ${{ github.event.repository.owner.name }}
           REPO_NAME: ${{ github.event.repository.name }}
+          MD_FOLDER: docs/
 
