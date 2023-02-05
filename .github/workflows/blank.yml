@@ -1,0 +1,31 @@
+name: Publish docs to Wiki
+
+# Trigger this action only if there are changes pushed to the docs/** directory under the main branch
+on:
+  push:
+    branches:
+      - main # This can be changed to any branch of your preference
+
+env:
+  USER_TOKEN: ${{ secrets.WIKI_ACTION_TOKEN }} # This is the repository secret
+  USER_NAME: AbdullahAlfaraj # Enter the username of your (bot) account
+  USER_EMAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com # Enter the e-mail of your (bot) account
+  OWNER: ${{ github.event.repository.owner.name }} # This is the repository owner
+  REPOSITORY_NAME: ${{ github.event.repository.name }} # This is the repository name
+
+jobs:
+  publish_docs_to_wiki:
+    name: Publish docs to Wiki
+    runs-on: ubuntu-latest
+    steps:  
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Upload Release Notes to Wiki
+        uses: docker://decathlon/wiki-page-creator-action:latest
+        env:
+          GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
+          ACTION_MAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com
+          ACTION_NAME: AbdullahAlfaraj
+          OWNER: ${{ github.event.repository.owner.name }}
+          REPO_NAME: ${{ github.event.repository.name }}
+
