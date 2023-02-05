@@ -1,49 +1,49 @@
-name: Publish docs to Wiki
+# name: Publish docs to Wiki
 
-# Trigger this action only if there are changes pushed to the docs/** directory under the main branch
-on:
-  push:
-    branches:
-      - main # This can be changed to any branch of your preference
+# # Trigger this action only if there are changes pushed to the docs/** directory under the main branch
+# on:
+#   push:
+#     branches:
+#       - main # This can be changed to any branch of your preference
 
-env:
-  USER_TOKEN: ${{ secrets.WIKI_ACTION_TOKEN }} # This is the repository secret
-  USER_NAME: AbdullahAlfaraj # Enter the username of your (bot) account
-  USER_EMAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com # Enter the e-mail of your (bot) account
-  OWNER: ${{ github.event.repository.owner.name }} # This is the repository owner
-  REPOSITORY_NAME: ${{ github.event.repository.name }} # This is the repository name
+# env:
+#   USER_TOKEN: ${{ secrets.WIKI_ACTION_TOKEN }} # This is the repository secret
+#   USER_NAME: AbdullahAlfaraj # Enter the username of your (bot) account
+#   USER_EMAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com # Enter the e-mail of your (bot) account
+#   OWNER: ${{ github.event.repository.owner.name }} # This is the repository owner
+#   REPOSITORY_NAME: ${{ github.event.repository.name }} # This is the repository name
 
-jobs:
-  publish_docs_to_wiki:
-    name: Publish docs to Wiki
-    runs-on: ubuntu-latest
-    steps:  
-#       - name: Checkout repository
-#         uses: actions/checkout@v2
-#       - name: Upload Release Notes to Wiki
-#         uses: docker://decathlon/wiki-page-creator-action:latest
-#         env:
-#           GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
-#           ACTION_MAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com
-#           ACTION_NAME: AbdullahAlfaraj
-#           OWNER: ${{ github.event.repository.owner.name }}
-#           REPO_NAME: ${{ github.event.repository.name }}
-#           MD_FOLDER: docs/
+# jobs:
+#   publish_docs_to_wiki:
+#     name: Publish docs to Wiki
+#     runs-on: ubuntu-latest
+#     steps:  
+# #       - name: Checkout repository
+# #         uses: actions/checkout@v2
+# #       - name: Upload Release Notes to Wiki
+# #         uses: docker://decathlon/wiki-page-creator-action:latest
+# #         env:
+# #           GH_PAT: ${{ secrets.WIKI_ACTION_TOKEN }}
+# #           ACTION_MAIL: 7842232+AbdullahAlfaraj@users.noreply.github.com
+# #           ACTION_NAME: AbdullahAlfaraj
+# #           OWNER: ${{ github.event.repository.owner.name }}
+# #           REPO_NAME: ${{ github.event.repository.name }}
+# #           MD_FOLDER: docs/
           
-      - name: Wiki Sync
-        # You may pin to the exact commit or the version.
-        # uses: JoeIzzard/ghaction-wiki-sync@56fa2d2877578ffd8480f8694eff93de0fac5d4f
-        uses: JoeIzzard/ghaction-wiki-sync@v1
-        with:
-          # The username of the repo owner
-          username: AbdullahAlfaraj 
-          # The access token with Repo access. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
-          access_token: ${{ secrets.WIKI_ACTION_TOKEN }}
-          # The folder you want to sync the repo with
-          wiki_folder: docs # optional, default is wiki
-          # A custom commit message to be used
-          commit_message: "wiki sync" # optional, default is action: wiki sync
-          # The email address to use with the commit
-          commit_username: AbdullahAlfaraj
-          # The email address to use when committing
-          commit_email: 7842232+AbdullahAlfaraj@users.noreply.github.com
+#       - name: Wiki Sync
+#         # You may pin to the exact commit or the version.
+#         # uses: JoeIzzard/ghaction-wiki-sync@56fa2d2877578ffd8480f8694eff93de0fac5d4f
+#         uses: JoeIzzard/ghaction-wiki-sync@v1
+#         with:
+#           # The username of the repo owner
+#           username: AbdullahAlfaraj 
+#           # The access token with Repo access. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
+#           access_token: ${{ secrets.WIKI_ACTION_TOKEN }}
+#           # The folder you want to sync the repo with
+#           wiki_folder: docs # optional, default is wiki
+#           # A custom commit message to be used
+#           commit_message: "wiki sync" # optional, default is action: wiki sync
+#           # The email address to use with the commit
+#           commit_username: AbdullahAlfaraj
+#           # The email address to use when committing
+#           commit_email: 7842232+AbdullahAlfaraj@users.noreply.github.com
