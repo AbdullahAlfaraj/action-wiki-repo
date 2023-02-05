@@ -40,7 +40,7 @@ jobs:
           # The access token with Repo access. Can be passed in using `{{ secrets.GITHUB_TOKEN }}`.
           access_token: ${{ secrets.WIKI_ACTION_TOKEN }}
           # The folder you want to sync the repo with
-          wiki_folder: docs/ # optional, default is wiki
+          wiki_folder: docs # optional, default is wiki
           # A custom commit message to be used
           commit_message: "wiki sync" # optional, default is action: wiki sync
           # The email address to use with the commit
