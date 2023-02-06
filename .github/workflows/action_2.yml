@@ -14,6 +14,8 @@ jobs:
             uses: cmbrose/github-docs-to-wiki@v0.24
             with: 
                 githubToken: ${{ secrets.WIKI_ACTION_TOKEN }}
+                rootDocsFolder: ./wiki2/
+                defaultBranch: main
 #           - uses: actions/checkout@master
 #           - name: Sync Wiki
 #             uses: joeizzard/action-wiki-sync@master
