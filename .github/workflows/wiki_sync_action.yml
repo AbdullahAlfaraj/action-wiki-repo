@@ -16,7 +16,7 @@ jobs:
           - uses: actions/checkout@master
           - name: Sync Wiki
 #             uses: joeizzard/action-wiki-sync@master
-            uses: AbdullahAlfaraj/action-wiki-sync@master
+            uses: AbdullahAlfaraj/ghaction-wiki-sync@master
 
         
             with:
