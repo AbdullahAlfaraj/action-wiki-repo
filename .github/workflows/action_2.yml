@@ -10,13 +10,13 @@ jobs:
     update-wiki:
         runs-on: ubuntu-latest
         steps:
-          - name: github-docs-to-wiki
-            uses: cmbrose/github-docs-to-wiki@v0.24
-            with: 
-                githubToken: ${{ secrets.WIKI_ACTION_TOKEN }}
-                rootDocsFolder: ./wiki2/
-                defaultBranch: main
-#           - uses: actions/checkout@master
+#           - name: github-docs-to-wiki
+#             uses: cmbrose/github-docs-to-wiki@v0.24
+#             with: 
+#                 githubToken: ${{ secrets.WIKI_ACTION_TOKEN }}
+#                 rootDocsFolder: ./wiki2/
+#                 defaultBranch: main
+# #           - uses: actions/checkout@master
 #           - name: Sync Wiki
 #             uses: joeizzard/action-wiki-sync@master
 #             with:
@@ -26,5 +26,20 @@ jobs:
 #                 commit_username: 'AbdullahAlfaraj'
 #                 commit_email: '7842232+AbdullahAlfaraj@users.noreply.github.com'
 #                 commit_message: 'action: wiki sync'
-            
+          - name: Checkout base code
+            uses: actions/checkout@v2
+            with:
+                path: base-code
+          - name: Checkout wiki code
+            uses: actions/checkout@v2
+            with:
+                repository: ${{github.repository}}.wiki
+                path: markdown
+          - name: Push to wiki
+            run: |
+                cd markdown
+                git config --local user.email "action@github.com"
+                git config --local user.name "GitHub Action"
+                git add .
+                git diff-index --quiet HEAD || git commit -m "Add changes" && git push
 
