@@ -23,6 +23,7 @@ jobs:
                 username: AbdullahAlfaraj
                 access_token: ${{ secrets.WIKI_ACTION_TOKEN }}
 #                 wiki_folder: wiki2/
+                wiki_folder: "./wiki"
                 commit_username: 'AbdullahAlfaraj'
                 commit_email: '7842232+AbdullahAlfaraj@users.noreply.github.com'
                 commit_message: 'action: wiki sync'
